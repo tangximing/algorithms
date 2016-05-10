@@ -30,12 +30,14 @@ public class AvlTreeTest {
         System.out.printf("== 最小值: %d\n", tree.minimum());
         System.out.printf("== 最大值: %d\n", tree.maximum());
 
-        i = 8;
+        i = 12;
         System.out.printf("\n== 删除根节点: %d", i);
         tree.remove(i);
+        tree.remove(10);
+        tree.print();
 
         System.out.printf("\n== 高度: %d", tree.height());
-        System.out.printf("\n== 中序遍历: ");
-        tree.inOrder();
+        System.out.printf("\n== 前序遍历: ");
+        tree.preOrder();
     }
 }

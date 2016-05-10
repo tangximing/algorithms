@@ -91,24 +91,31 @@ public class AvlTree<T extends Comparable<T>> {
             return null;
         int cmp = tree.data.compareTo(target.data);
         if(cmp > 0){
-            tree = remove(tree.left, target);
+            tree.left = remove(tree.left, target);
             if(height(tree.right) - height(tree.left) == 2){
                 if(height(tree.right.left) > height(tree.right.right)){
                     tree = rightleftRotation(tree);
-                } else if(height(tree.right.right) > height(tree.right.left)){
+                } else {
                     tree = rightrightRotation(tree);
                 }
             }
         } else if(cmp < 0){
-            tree = remove(tree.right, target);
+            tree.right = remove(tree.right, target);
             if(height(tree.left) - height(tree.right) == 2){
                 if(height(tree.left.right) > height(tree.left.left)){
                     tree = leftrightRotation(tree);
-                } else if(height(tree.left.left) > height(tree.left.right)){
+                } else {
                     tree = leftleftRotation(tree);
                 }
             }
         } else {
+            /**
+             * 1. if the left and right child are both not null
+             * 2. if the height of the left child is bigger than the height of the right child
+             *    then replace it with the maximum node of the left child;
+             * 3. else
+             *    replace it with the minimum node of the right child.
+             */
             if(tree.left != null && tree.right != null){
                 if(height(tree.left) > height(tree.right)){
                     AvlTreeNode max = max(tree.left);
@@ -120,11 +127,19 @@ public class AvlTree<T extends Comparable<T>> {
                     tree.right = remove(tree.right, min);
                 }
             } else {
+                /**
+                 * if the left or right is null, just assign the tree to its' left child of right child
+                 */
                 AvlTreeNode tmp = tree;
                 tree = (tree.left != null) ? tree.left : tree.right;
                 tmp = null;
             }
         }
+        /**
+         * update the height of the tree after deletion
+         */
+        if(tree != null)
+            tree.height = Math.max(height(tree.left), height(tree.right)) + 1;
         return tree;
     }
 
@@ -288,5 +303,25 @@ public class AvlTree<T extends Comparable<T>> {
             postOrder(root.right);
             System.out.print(root.data + " ");
         }
+    }
+
+    private void print(AvlTreeNode tree, T key, int direction) {
+        if(tree != null) {
+            if(direction==0)	// tree是根节点
+                System.out.printf("%2d is root\n", tree.data, key);
+            else				// tree是分支节点
+                System.out.printf("%2d is %2d's %6s child\n", tree.data, key, direction==1?"right" : "left");
+
+            print(tree.left, tree.data, -1);
+            print(tree.right,tree.data,  1);
+        }
+    }
+
+    /**
+     * pring the avl tree
+     */
+    public void print() {
+        if (root != null)
+            print(root, root.data, 0);
     }
 }
