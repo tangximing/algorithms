@@ -1,4 +1,4 @@
-package Tree.Binary;
+package tree.Binary;
 
 import java.util.*;
 
@@ -11,6 +11,8 @@ import java.util.*;
  * 5. Get the node number of the tree
  * 6. Level Iteration of the tree
  * 7. Get the depth of tht tree
+ * 8. Judge if the tree is an balanced tree
+ * 9. Get the max distance in the tree
  */
 public class BinaryTree<T> {
     /**
@@ -312,7 +314,7 @@ public class BinaryTree<T> {
     }
 
     /**
-     * 8. Judge: if the tree is an balanced tree, O(n)
+     * 8. Judge if the tree is an balanced tree, O(n)
      */
     class Depth{
         public int height;
@@ -335,4 +337,27 @@ public class BinaryTree<T> {
         }
         return false;
     }
+
+  /**
+   * 9. Get the max distance in the tree
+   */
+  public int distance = 0;
+  public int maxDistance() {
+    return maxDistance(root, new Depth());
+  }
+  private int maxDistance(BinaryTreeNode root, Depth d) {
+    if (root == null) {
+      d.height = 0;
+      return 0;
+    }
+    Depth left = new Depth(), right = new Depth();
+    int left_distance = maxDistance(root.left, left);
+    int right_distance = maxDistance(root.right, right);
+    d.height = Math.max(left.height, right.height) + 1;
+    int max = Math.max(Math.max(left.height + right.height, left_distance), right_distance);
+    if (max > distance) {
+      distance = max;
+    }
+    return max;
+  }
 }

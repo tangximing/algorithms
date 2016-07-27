@@ -1,6 +1,6 @@
 package sort.BubbleSort;
 
-import sort.sort;
+import sort.Sort;
 
 /**
  * Created by 西铭 on 2016/5/9.
@@ -11,7 +11,7 @@ import sort.sort;
  * 空间复杂度  O（1）
  * 稳定
  */
-public class BubbleSort<T extends Comparable<T>> implements sort<T> {
+public class BubbleSort<T extends Comparable<T>> implements Sort<T> {
     /**
      * 优化前
      * @param arrays

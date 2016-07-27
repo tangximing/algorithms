@@ -1,4 +1,4 @@
-package Tree.AVL;
+package tree.AVL;
 
 /**
  * Created by 西铭 on 2016/5/9.

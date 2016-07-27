@@ -1,11 +1,11 @@
-package Tree.AVL;
+package tree.AVL;
 
 /**
  * Created by 西铭 on 2016/5/9.
  */
 public class AvlTree<T extends Comparable<T>> {
     /**
-     * root for AVL Tree
+     * root for AVL tree
      */
     public AvlTreeNode root;
 

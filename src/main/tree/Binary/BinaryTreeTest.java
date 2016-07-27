@@ -1,4 +1,4 @@
-package Tree.Binary;
+package tree.Binary;
 
 /**
  * Created by 西铭 on 2016/5/10.
@@ -46,5 +46,9 @@ public class BinaryTreeTest {
         // 5. judge the tree if it's the balanced tree
         System.out.println("二叉树是平衡二叉树？");
         System.out.println(bt.isBalanced());
+
+        // 6. get the max distance in the tree
+        System.out.println("二叉树的最大距离：");
+        System.out.println(bt.maxDistance());
     }
 }

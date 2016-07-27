@@ -1,6 +1,6 @@
 package sort.InsertSort;
 
-import sort.sort;
+import sort.Sort;
 
 /**
  * Created by 西铭 on 2016/5/9.
@@ -10,15 +10,13 @@ import sort.sort;
  * 空间复杂度  O（1）
  * 稳定
  */
-public class InsertSort<T extends Comparable<T>> implements sort<T> {
+public class InsertSort<T extends Comparable<T>> implements Sort<T> {
     @Override
     public void sort(T[] arrays) {
         if(arrays == null || arrays.length <= 1)
             return;
         int length = arrays.length;
         for(int i = 1; i < length; i++){
-            if(arrays[i].compareTo(arrays[i - 1]) >= 0)
-                continue;
             T target = arrays[i];
             int j = i - 1;
             while(j >= 0 && arrays[j].compareTo(target) > 0){
