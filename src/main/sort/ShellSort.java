@@ -1,4 +1,4 @@
-package sort.ShellSort;
+package sort;
 
 import sort.Sort;
 

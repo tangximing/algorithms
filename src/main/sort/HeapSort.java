@@ -1,4 +1,4 @@
-package sort.HeapSort;
+package sort;
 
 import sort.Sort;
 

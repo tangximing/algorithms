@@ -1,8 +1,9 @@
-package sort.BubbleSort;
+package sort;
 
 import org.junit.Before;
 import org.junit.Test;
 
+import sort.BubbleSort;
 import sort.SortTest;
 
 /**

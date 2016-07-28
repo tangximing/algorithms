@@ -1,4 +1,4 @@
-package sort.MergeSort;
+package sort;
 
 import sort.Sort;
 

@@ -1,4 +1,4 @@
-package sort.SelectSort;
+package sort;
 
 import sort.Sort;
 

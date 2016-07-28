@@ -1,4 +1,4 @@
-package sort.QuickSort;
+package sort;
 
 import sort.Sort;
 

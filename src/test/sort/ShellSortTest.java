@@ -1,11 +1,10 @@
-package sort.ShellSort;
+package sort;
 
 import org.junit.Before;
 import org.junit.Test;
 
+import sort.ShellSort;
 import sort.SortTest;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by tangxm on 2016/7/27.
