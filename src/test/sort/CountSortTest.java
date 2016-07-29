@@ -3,9 +3,6 @@ package sort;
 import org.junit.Before;
 import org.junit.Test;
 
-import sort.CountSort;
-import sort.SortTest;
-
 /**
  * Created by tangxm on 2016/7/28.
  */

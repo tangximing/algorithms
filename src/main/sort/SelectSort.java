@@ -1,7 +1,5 @@
 package sort;
 
-import sort.Sort;
-
 /**
  * Created by tangxm on 2016/7/27.
  * 主要思想 每次选择最小的元素放在数组前面

@@ -1,7 +1,5 @@
 package sort;
 
-import sort.Sort;
-
 /**
  * Created by tangxm on 2016/7/27.
  * 主要思想 通过一个target元素将数组分成两部分，一部分比target小，一部分比target大，然后递归对两个部分进行排序

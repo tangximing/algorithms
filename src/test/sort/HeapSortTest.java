@@ -3,9 +3,6 @@ package sort;
 import org.junit.Before;
 import org.junit.Test;
 
-import sort.HeapSort;
-import sort.SortTest;
-
 /**
  * Created by tangxm on 2016/7/27.
  */

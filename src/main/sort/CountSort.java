@@ -1,7 +1,5 @@
 package sort;
 
-import sort.Sort;
-
 /**
  * Created by tangxm on 2016/7/28.
  * 用于元素为0-k的数组

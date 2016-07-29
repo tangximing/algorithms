@@ -1,7 +1,5 @@
 package sort;
 
-import sort.Sort;
-
 /**
  * Created by tangxm on 2016/7/27.
  * 主要思想 将原数组分成两数组，分别排序，最后将排好序的两数组合并
