@@ -5,7 +5,7 @@ package sort;
  * 主要思想 通过建立最大堆实现
  * 时间复杂度  最好：O（n * log(n)）, 最坏：O（n * log(n)）, 平均：O（n * log(n)）
  * 空间复杂度  O（1）
- * 不稳定
+ * 不稳定（例：1，2，3，2）
  */
 public class HeapSort<T extends Comparable<T>> implements Sort<T> {
   @Override
