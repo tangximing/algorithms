@@ -2,6 +2,7 @@ package designpattern.singleton;
 
 /**
  * Created by tangxm on 2016/8/17.
+ * 当多个线程调用getInstance() 会创建多个实例
  */
 public class Singleton {
   /**
