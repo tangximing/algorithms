@@ -13,6 +13,7 @@ import java.util.*;
  * 7. Get the depth of tht tree
  * 8. Judge if the tree is an balanced tree
  * 9. Get the max distance in the tree
+ * 10. Get the width of the tree
  */
 public class BinaryTree<T> {
     /**
@@ -304,6 +305,7 @@ public class BinaryTree<T> {
                 depth++;
                 if(!queue.isEmpty())
                     queue.offer(splitter);
+              continue;
             }
             if(top.left != null)
                 queue.offer(top.left);
@@ -359,5 +361,44 @@ public class BinaryTree<T> {
       distance = max;
     }
     return max;
+  }
+
+  /**
+   * 10. Get the width of the tree
+   * @return width
+   */
+  public int width() {
+    return width(root);
+  }
+  private int width(BinaryTreeNode node) {
+    if (root == null) {
+      return 0;
+    }
+    int width = 1;
+    int tmp = 1;
+    BinaryTreeNode dummy = new BinaryTreeNode();
+    Queue<BinaryTreeNode> queue = new LinkedList<>();
+    queue.offer(node);
+    queue.offer(dummy);
+    while (!queue.isEmpty()) {
+      BinaryTreeNode front = queue.poll();
+      if (front == dummy) {
+        width = Math.max(width, tmp);
+        tmp = 0;
+        if (!queue.isEmpty()) {
+          queue.offer(dummy);
+        }
+        continue;
+      }
+      if (front.left != null) {
+        queue.offer(front.left);
+        tmp++;
+      }
+      if (front.right != null) {
+        queue.offer(front.right);
+        tmp++;
+      }
+    }
+    return width;
   }
 }
