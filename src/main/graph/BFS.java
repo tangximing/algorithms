@@ -8,6 +8,7 @@ import java.util.Queue;
 
 /**
  * Created by tangxm on 2016/8/19.
+ * 树的层序遍历、网络爬虫、寻找最短路径等
  */
 public class BFS<T> {
   /**

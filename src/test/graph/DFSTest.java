@@ -1,18 +1,17 @@
 package graph;
 
 import org.junit.Before;
+import org.junit.Test;
 
 /**
- * Created by tangxm on 2016/8/19.
- * r —— s    t —— u
- * |    | /  |  / |
- * v    w —— x —— y
+ * Created by tangxm on 2016/8/22.
  */
-public class GraphTest {
-  protected Graph<String> graph;
+public class DFSTest {
+  private Graph<String> graph;
+
   @Before
   public void init() {
-    graph = new Graph<>();
+    graph = new UnDirectedGraph<>();
     graph.addEdge("r", "v");
     graph.addEdge("r", "s");
     graph.addEdge("s", "w");
@@ -23,5 +22,12 @@ public class GraphTest {
     graph.addEdge("x", "u");
     graph.addEdge("x", "y");
     graph.addEdge("u", "y");
+  }
+
+  @Test
+  public void test() {
+    DFS<String> dfs = new DFS<>(graph, 2);
+    dfs.dfs();
+    dfs.printPath();
   }
 }
