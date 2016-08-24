@@ -1,4 +1,4 @@
-package javaresearch.DynamicProxy;
+package javaresearch.dynamicProxy;
 
 import org.junit.Test;
 

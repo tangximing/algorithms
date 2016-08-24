@@ -1,4 +1,4 @@
-package javaresearch.InnerClass;
+package javaresearch.innerClass;
 
 /**
  * Created by tangxm on 2016/8/17.

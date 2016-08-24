@@ -18,7 +18,7 @@ public class TopologicalSort<T> {
 
    List<T> results = new ArrayList<>();
    int[] inDegrees = new int[graph.getVertex()]; // 用于存储每个点的入度
-   Queue<Integer> queue = new LinkedList<>(); // 用于存储入读为0的点
+   Queue<Integer> queue = new LinkedList<>(); // 用于存储入度为0的点
 
    /** 遍历邻接表，统计各个顶点的入度*/
    for (Map.Entry<Integer, List<Integer>> edge: edges.entrySet()) {

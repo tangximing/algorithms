@@ -1,4 +1,4 @@
-package javaresearch.DynamicProxy;
+package javaresearch.dynamicProxy;
 
 /**
  * Created by tangxm on 2016/8/22.
