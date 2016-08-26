@@ -8,6 +8,7 @@ public interface Sort<T extends Comparable<T>> {
     void sort(T[] arrays);
     default void print(T[] arrays){
         for(T item: arrays)
-            System.out.println(item.toString());
+            System.out.print(item.toString() + " ");
+        System.out.println();
     }
 }
