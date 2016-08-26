@@ -3,11 +3,15 @@ package tree.Binary;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by tangxm on 2016/8/22.
  */
 public class BinaryTreeTest {
   private BinaryTree<Integer> bt;
+
   @Before
   public void init() {
     bt = new BinaryTree<>();
@@ -108,4 +112,16 @@ public class BinaryTreeTest {
     System.out.println(bt.width());
   }
 
+  @Test
+  public void findPath() throws Exception {
+    List<Integer> path = new ArrayList<>();
+    bt.findPath(5, path);
+    for (Integer i: path)
+      System.out.print(i + " ");
+  }
+
+  @Test
+  public void getLCA() throws Exception {
+    System.out.println(bt.getLowestCommonAncestor(6, 9));
+  }
 }

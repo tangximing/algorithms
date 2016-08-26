@@ -1,4 +1,4 @@
-package proxy;
+package designpattern.proxy;
 
 /**
  * Created by tangxm on 2016/8/22.

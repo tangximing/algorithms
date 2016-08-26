@@ -1,10 +1,10 @@
-package interview;
+package array;
 
 /**
- * Created by tangxm on 2016/8/23.
- * 爱奇艺
+ * Created by tangxm on 2016/8/25.
+ * 1. 第K大的数 (爱奇艺)
  */
-public class AiQiYi {
+public class ArrayQA {
   /**
    * 第K大的数
    * @param arrays 无序数组

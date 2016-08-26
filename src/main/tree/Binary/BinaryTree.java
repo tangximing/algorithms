@@ -14,6 +14,8 @@ import java.util.*;
  * 8. Judge if the tree is an balanced tree
  * 9. Get the max distance in the tree
  * 10. Get the width of the tree
+ * 11. Get the path to the node from root
+ * 12. Get the lowest common ancestor of two nodes
  */
 public class BinaryTree<T> {
     /**
@@ -400,5 +402,53 @@ public class BinaryTree<T> {
       }
     }
     return width;
+  }
+
+  /**
+   * 11. Get the path to the node from root
+   * @param value the value of the node
+   * @param path the path
+   * @return if find path
+   */
+  public boolean findPath(T value, List<T> path) {
+    return findPath(root, value, path);
+  }
+  private boolean findPath(BinaryTreeNode node, T value, List<T> path) {
+    if (node == null)
+      return false;
+    path.add(node.data);
+    if (node.data == value)
+      return true;
+    if (findPath(node.left, value, path) || findPath(node.right, value, path)) {
+      return true;
+    }
+    path.remove(path.size() - 1);
+    return false;
+  }
+
+  /**
+   * 12. Get the lowestCommonAncestor of tow nodes
+   * @param value1 the value of node1
+   * @param value2 the value of node2
+   * @return the value of the LCA
+   */
+  public T getLowestCommonAncestor(T value1, T value2) {
+    return getLowestCommonAncestor(root, value1, value2);
+  }
+  private T getLowestCommonAncestor(BinaryTreeNode node, T value1, T value2) {
+    List<T> path1 = new ArrayList<>();
+    List<T> path2 = new ArrayList<>();
+    boolean flag1 = findPath(node, value1, path1);
+    boolean flag2 = findPath(node, value2, path2);
+    if (flag1 && flag2) {
+      int i = 0;
+      while (i < path1.size() && i < path2.size()) {
+        if (path1.get(i) != path2.get(i))
+          break;
+        i++;
+      }
+      return path1.get(i - 1);
+    }
+    return null;
   }
 }
