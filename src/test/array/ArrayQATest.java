@@ -23,4 +23,14 @@ public class ArrayQATest {
     System.out.println(arrayQA.getK(arrays, 6));
   }
 
+  @Test
+  public void isLeak() {
+    int[][] arrays = {
+            {1, 0, 1, 1, 0},
+            {0, 0, 1, 0, 0},
+            {0, 1, 0, 0, 1},
+            {1, 0, 0, 1, 0}
+    };
+    System.out.println(arrayQA.isLeak(arrays));
+  }
 }

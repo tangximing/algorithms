@@ -3,6 +3,7 @@ package array;
 /**
  * Created by tangxm on 2016/8/25.
  * 1. 第K大的数 (爱奇艺)
+ * 2. 判断用二维数组表示的砖块是否漏水 （远景能源）
  */
 public class ArrayQA {
   /**
@@ -37,5 +38,56 @@ public class ArrayQA {
     } else {
       return getK(arrays, start, left - 1, k);
     }
+  }
+
+  /**
+   * 2. 判断用二维数组表示的砖块是否漏水
+   */
+  private boolean[][] visited;
+  public boolean isLeak(int[][] arrays) {
+    int row = arrays.length;
+    int col = arrays[0].length;
+    visited = new boolean[row][col];
+    for (int i = 0; i < col; i++) {
+      visited[0][i] = true;
+      if(dfs(arrays, 0, i, row, col)) {
+        return true;
+      } else {
+        visited[0][i] = false;
+      }
+    }
+
+    return false;
+  }
+  private boolean dfs(int[][] arrays, int i, int j, int row, int col) {
+    if (i == row - 1) {
+      return true;
+    }
+
+    if (j - 1 >= 0 && arrays[i][j - 1] == 0 && !visited[i][j - 1]) {
+      visited[i][j - 1] = true;
+      if(dfs(arrays, i, j - 1, row, col)) {
+        return true;
+      } else {
+        visited[i][j - 1] = false;
+      }
+    }
+    if (j + 1 < col && arrays[i][j + 1] == 0 && !visited[i][j + 1]) {
+      visited[i][j + 1] = true;
+      if(dfs(arrays, i, j + 1, row, col)) {
+        return true;
+      } else {
+        visited[i][j + 1] = false;
+      }
+    }
+    if (i + 1 < row && arrays[i + 1][j] == 0 && !visited[i + 1][j]) {
+      visited[i + 1][j] = true;
+      if(dfs(arrays, i + 1, j, row, col)) {
+        return true;
+      } else {
+        visited[i + 1][j] = false;
+      }
+    }
+    return false;
   }
 }
