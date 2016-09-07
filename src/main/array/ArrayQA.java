@@ -1,9 +1,13 @@
 package array;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by tangxm on 2016/8/25.
  * 1. 第K大的数 (爱奇艺)
  * 2. 判断用二维数组表示的砖块是否漏水 （远景能源）
+ * 3. 一维数组中只有1和-1，计算和为0的最长连续子串的长度
  */
 public class ArrayQA {
   /**
@@ -89,5 +93,34 @@ public class ArrayQA {
       }
     }
     return false;
+  }
+
+  /**
+   * 3. 一维数组中只有1和-1，计算和为0的最长连续子串的长度
+   */
+  public int getMaxZero(int[] arrays) {
+    if (arrays == null || arrays.length == 0) {
+      return 0;
+    }
+    /**
+     * map保存前缀和为sum的最早位置
+     */
+    Map<Integer, Integer> map = new HashMap<>();
+    map.put(0, -1); // 前缀和为0的最早位置为-1
+    int sum = 0;
+    for (int i = 0; i < arrays.length; i++) {
+      sum += arrays[i];
+      if (!map.containsKey(sum)) {
+        map.put(sum, i);
+      }
+    }
+
+    int max = 0;
+    for (int i = arrays.length - 1; i >= 0; i--) {
+      max = Math.max(max, i - map.get(sum));
+      sum -= arrays[i];
+    }
+
+    return max;
   }
 }

@@ -3,8 +3,6 @@ package array;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 /**
  * Created by tangxm on 2016/8/25.
  */
@@ -32,5 +30,11 @@ public class ArrayQATest {
             {1, 0, 0, 1, 0}
     };
     System.out.println(arrayQA.isLeak(arrays));
+  }
+
+  @Test
+  public void getMaxZero() {
+    int[] arrays = {1,1,-1,1,-1,-1,-1};
+    System.out.println(arrayQA.getMaxZero(arrays));
   }
 }
