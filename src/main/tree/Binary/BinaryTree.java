@@ -21,7 +21,7 @@ public class BinaryTree<T> {
     /**
      * root for the BinaryTree
      */
-    private BinaryTreeNode root;
+    protected BinaryTreeNode root;
     public BinaryTree(){
         root = null;
     }
